@@ -106,7 +106,7 @@ If you use this code, please cite:
   journal = {Computers & Operations Research},
   year    = {<year>},
   note    = {Code: https://github.com/scipiogithub/k-CMBCP, v1.0-submission;
-             Zenodo: https://doi.org/10.5281/zenodo.XXXXXXX}
+             Zenodo: https://doi.org/10.5281/zenodo.20617760}
 }
 ```
 
