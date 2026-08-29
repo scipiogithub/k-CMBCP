@@ -21,9 +21,10 @@ biclique completion cost (`fitnes`/`fitness`).
 .
 ├── k-CMBCP.jl     # complete Q-LS implementation
 └── data/          # benchmark instances (Groups I, II, III)
+└── largedata/     # benchmark instances (Groups IV)
 ```
 
-Each instance file in `data/` follows the standard *k*-CMBCP format: the first line
+Each instance file follows the standard *k*-CMBCP format: the first line
 contains the number of services |S|, the number of clients |C|, and the number of
 clusters K; each subsequent line lists an existing service–client edge.
 
