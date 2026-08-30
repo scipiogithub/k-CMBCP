@@ -20,8 +20,7 @@ biclique completion cost (`fitnes`/`fitness`).
 ```
 .
 ├── k-CMBCP.jl     # complete Q-LS implementation
-└── data/          # benchmark instances (Groups I, II, III)
-└── largedata/     # benchmark instances (Groups IV)
+└── data/          # benchmark instances (Groups I, II, III, IV)
 ```
 
 Each instance file follows the standard *k*-CMBCP format: the first line
