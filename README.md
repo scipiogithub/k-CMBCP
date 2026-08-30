@@ -90,7 +90,6 @@ The hyperparameters are set in `k-CMBCP.jl` and were calibrated with the
 
 - learning rate `α = 0.1`
 - discount factor `γ = 0.9`
-- initial exploration rate `ϵ = 0.05`, initial intensification probability `ω = 0.05`
 - episode length (`stepsize`): 10 for |S| < 200, 5 for |S| = 200, and 2 for |S| = 300
 
 ---
