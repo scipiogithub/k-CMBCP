@@ -90,7 +90,7 @@ function move!(C::Vector{Vector{Int64}}, Tcost::Int64, costs::Vector{Int64})::In
     for c₁ in 1:K, c₂ in 1:K
         c₁ == c₂ && continue
         λ = length(C[c₂])
-        λ == 0 && continue
+        λ < 2 && continue
         C₁, C₂ = copy(C[c₁]), copy(C[c₂])
         i::Int64 = 1
         while i <= λ
@@ -197,8 +197,9 @@ function main(ϵ, ω, Δϵ, Δω, T)
             ϵ = max(0, ϵ + Δϵ * 0.01)
             ω = max(0, ω + Δω * 0.01)
         end
-        if Tcost < bestTcost
-            bestₜ = time() - t
+        elapsed = time() - t
+        if Tcost < bestTcost && elapsed < T
+            bestₜ = elapsed
             for i in eachindex(C)
                 for s in C[i]
                     qtable[s, i] += 1
@@ -208,7 +209,7 @@ function main(ϵ, ω, Δϵ, Δω, T)
             bestCosts = copy(costs)
             bestC = deepcopy(C)
         end
-        time() - t >= T && break
+        elapsed >= T && break
     end
     return bestTcost, bestₜ 
 end
@@ -235,7 +236,7 @@ filename = ARGS[1]
 const edges, K = readFile("$url$filename")
 const S = size(edges, 1)
 const qtable = ones(Float64, S, K) 
-const stepsize = S < 200 ? 10 : (S < 300 ? 5 : 2)
-const α, γ = 0.1, 0.9
+const stepsize = S < 200 ? 30 : (S < 300 ? 15 : 6)
+const α, γ = 0.1, 1.0
 f, t = main(0.05, 0.05, 1, 1, parse(Int, ARGS[2]))
 println("F_best:$f t_best:$t")
